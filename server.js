@@ -4,6 +4,8 @@ const dotenv = require('dotenv');
 
 
 const app =express();
+const cors = require("cors");
+app.use(cors());
 
 //middleware
 app.use(express.json());
@@ -11,6 +13,7 @@ app.use(morgan('dev')); // for logging requests in the console
 
 //routes
 app.use('/api/v1/user', require('./routes/userRoutes'));
+app.use('/api/v1/admin', require('./routes/adminRoutes'));
 //port
 const port = process.env.PORT || 8080;  
 //listen port

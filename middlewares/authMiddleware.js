@@ -10,6 +10,7 @@ module.exports = async (req, res, next) => {
           success: false,
         });
       } else {
+       req.body = req.body || {};
         req.body.userId = decode.id;
         next();
       }
